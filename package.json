@@ -1,0 +1,33 @@
+{
+  "name": "copa-2026-explorer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaviLLi/copa-2026-explorer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DaviLLi/copa-2026-explorer/issues"
+  },
+  "homepage": "https://github.com/DaviLLi/copa-2026-explorer#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "chromedriver": "^149.0.3",
+    "eslint": "^10.5.0",
+    "jest": "^30.4.2",
+    "selenium-webdriver": "^4.44.0"
+  }
+}
