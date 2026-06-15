@@ -14,6 +14,10 @@ app.get("/selecoes", (req, res) => {
   res.sendFile(path.join(viewsPath, "selecoes.html"));
 });
 
+app.get("/countdown", (req, res) => {
+  res.sendFile(path.join(viewsPath, "countdown.html"));
+});
+
 const server = app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });

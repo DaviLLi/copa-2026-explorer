@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore seleções, estádios, curiosidades e simule resultados da Copa do Mundo de 2026."
+      content="Explore seleções e acompanhe a contagem regressiva para a final da Copa do Mundo de 2026."
     />
 
     <title>Copa 2026 Explorer</title>
@@ -120,7 +120,8 @@
       }
 
       nav a:hover::after,
-      nav a:focus-visible::after {
+      nav a:focus-visible::after,
+      nav a[aria-current="page"]::after {
         transform: scaleX(1);
       }
 
@@ -293,7 +294,7 @@
 
       .cards {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px;
       }
 
@@ -484,11 +485,9 @@
     </header>
 
     <nav aria-label="Navegação principal">
-      <a href="/">Home</a>
+      <a href="/" aria-current="page">Home</a>
       <a href="/selecoes">Seleções</a>
-      <a href="#estadios">Estádios</a>
-      <a href="#simulador">Simulador</a>
-      <a href="#curiosidades">Curiosidades</a>
+      <a href="/countdown">Contagem Regressiva</a>
     </nav>
 
     <main>
@@ -499,9 +498,8 @@
           <h1>Copa do <span>Mundo 2026</span></h1>
 
           <p class="hero-description">
-            A maior Copa da história começa aqui. Descubra as seleções, conheça
-            os palcos e teste seus palpites em uma experiência feita para quem
-            vive futebol.
+            A maior Copa da história começa aqui. Conheça seleções favoritas e
+            acompanhe a contagem regressiva para a grande final de 2026.
           </p>
 
           <div class="hero-actions">
@@ -515,12 +513,12 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Seu guia para o torneio</p>
-            <h2 id="explore-title">Tudo sobre a Copa em um só lugar.</h2>
+            <h2 id="explore-title">Explore as páginas principais do projeto.</h2>
           </div>
 
           <p>
-            Navegue pelos principais temas e acompanhe cada detalhe da edição
-            que vai redefinir o futebol mundial.
+            O escopo atual reúne a Home, o painel de seleções e o contador em
+            tempo real para a final da Copa do Mundo 2026.
           </p>
         </div>
 
@@ -535,34 +533,14 @@
             <span class="card-link">Ver seleções <span>→</span></span>
           </a>
 
-          <a class="card" id="estadios" href="#">
+          <a class="card" id="countdown" href="/countdown">
             <span class="card-icon" aria-hidden="true">02</span>
-            <h3>Estádios</h3>
+            <h3>Contagem Regressiva</h3>
             <p>
-              Explore arenas e cidades que receberão os grandes jogos da
-              competição.
+              Acompanhe dias, horas, minutos e segundos até a final da Copa do
+              Mundo 2026.
             </p>
-            <span class="card-link">Conhecer palcos <span>→</span></span>
-          </a>
-
-          <a class="card" id="simulador" href="#">
-            <span class="card-icon" aria-hidden="true">03</span>
-            <h3>Simulador</h3>
-            <p>
-              Faça seus palpites e monte o caminho até a grande final da Copa
-              de 2026.
-            </p>
-            <span class="card-link">Simular jogos <span>→</span></span>
-          </a>
-
-          <a class="card" id="curiosidades" href="#">
-            <span class="card-icon" aria-hidden="true">04</span>
-            <h3>Curiosidades</h3>
-            <p>
-              Descubra histórias, recordes e fatos que tornam cada Mundial
-              inesquecível.
-            </p>
-            <span class="card-link">Descobrir fatos <span>→</span></span>
+            <span class="card-link">Ver contador <span>→</span></span>
           </a>
         </div>
       </section>

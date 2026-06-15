@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Conheça seleções favoritas, títulos mundiais, ranking FIFA e destaques da Copa de 2026."
+      content="Contagem regressiva em tempo real para a final da Copa do Mundo 2026."
     />
 
-    <title>Seleções | Copa 2026 Explorer</title>
+    <title>Contagem Regressiva | Copa 2026 Explorer</title>
 
     <style>
       :root {
@@ -17,7 +17,6 @@
         --verde-700: #087f5b;
         --verde-100: #dff5e9;
         --amarelo: #ffcf24;
-        --amarelo-claro: #fff2b3;
         --branco: #ffffff;
         --cinza-50: #f4f7f5;
         --cinza-600: #52615b;
@@ -190,10 +189,10 @@
       }
 
       .hero h1 {
-        max-width: 720px;
+        max-width: 760px;
         margin: 0;
         font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-        font-size: clamp(3.7rem, 10vw, 8rem);
+        font-size: clamp(3.6rem, 9vw, 7.6rem);
         font-weight: 400;
         letter-spacing: -0.035em;
         line-height: 0.84;
@@ -212,141 +211,153 @@
         font-size: clamp(1rem, 2vw, 1.18rem);
       }
 
-      .teams-section {
+      .countdown-section {
         width: min(1180px, 88%);
         margin: 0 auto;
         padding: clamp(70px, 9vw, 112px) 0;
       }
 
-      .section-heading {
+      .countdown-panel {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(28px, 5vw, 46px);
+        border: 1px solid rgba(6, 76, 56, 0.1);
+        border-radius: 18px;
+        background: var(--branco);
+        box-shadow: var(--sombra);
+      }
+
+      .countdown-panel::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 170px;
+        height: 170px;
+        border-radius: 0 0 0 100%;
+        background: var(--verde-100);
+        content: "";
+      }
+
+      .panel-header {
+        position: relative;
+        z-index: 1;
         display: grid;
         grid-template-columns: 1fr auto;
         gap: 28px;
         align-items: end;
-        margin-bottom: 38px;
+        margin-bottom: 34px;
       }
 
-      .section-heading .eyebrow {
-        margin-bottom: 12px;
-        color: var(--verde-700);
-      }
-
-      .section-heading h2 {
-        max-width: 650px;
+      .panel-header h2 {
+        max-width: 700px;
         margin: 0;
-        font-size: clamp(2.1rem, 5vw, 3.8rem);
+        font-size: clamp(2rem, 5vw, 3.8rem);
         letter-spacing: -0.045em;
         line-height: 1.02;
       }
 
-      .section-heading > p {
-        max-width: 380px;
-        margin: 0;
-        color: var(--cinza-600);
-      }
-
-      .teams-grid {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .team-card {
-        position: relative;
-        display: flex;
-        min-height: 360px;
-        flex-direction: column;
-        overflow: hidden;
-        padding: 26px;
-        border: 1px solid rgba(6, 76, 56, 0.1);
-        border-radius: 14px;
-        background: var(--branco);
-        box-shadow: var(--sombra);
-        transition:
-          transform 220ms ease,
-          border-color 220ms ease;
-      }
-
-      .team-card::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 96px;
-        height: 96px;
-        border-radius: 0 0 0 100%;
-        background: var(--verde-100);
-        content: "";
-        transition: transform 220ms ease;
-        transform-origin: top right;
-      }
-
-      .team-card:hover {
-        border-color: var(--verde-700);
-        transform: translateY(-8px);
-      }
-
-      .team-card:hover::before {
-        transform: scale(1.12);
-      }
-
-      .flag {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        width: 66px;
-        height: 66px;
-        margin-bottom: 34px;
-        place-items: center;
-        border: 3px solid var(--amarelo);
-        border-radius: 50%;
+      .final-date {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 54px;
+        padding: 12px 18px;
+        border-radius: 999px;
         background: var(--verde-950);
-        color: var(--branco);
-        font-size: 1.9rem;
-        font-weight: 900;
-      }
-
-      .team-card h3 {
-        margin: 0 0 18px;
-        font-size: 1.55rem;
-        letter-spacing: -0.025em;
-      }
-
-      .team-stats {
-        display: grid;
-        gap: 14px;
-        margin: 0;
-      }
-
-      .stat {
-        display: grid;
-        gap: 2px;
-        padding-top: 14px;
-        border-top: 1px solid rgba(6, 76, 56, 0.12);
-      }
-
-      .stat dt {
-        color: var(--cinza-600);
-        font-size: 0.76rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .stat dd {
-        margin: 0;
-        color: var(--texto);
-        font-size: 1rem;
-        font-weight: 800;
-      }
-
-      .highlight {
-        margin-top: auto;
-        padding-top: 22px;
-        color: var(--verde-700);
+        color: var(--amarelo);
         font-size: 0.86rem;
         font-weight: 800;
         letter-spacing: 0.05em;
         text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .timer-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .time-card {
+        min-height: 170px;
+        padding: 24px;
+        border: 1px solid rgba(6, 76, 56, 0.12);
+        border-radius: 14px;
+        background:
+          linear-gradient(180deg, rgba(255, 207, 36, 0.16), rgba(255, 255, 255, 0)),
+          var(--branco);
+      }
+
+      .time-value {
+        display: block;
+        color: var(--verde-950);
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: clamp(3.4rem, 8vw, 5.6rem);
+        letter-spacing: -0.04em;
+        line-height: 0.9;
+      }
+
+      .time-label {
+        display: block;
+        margin-top: 18px;
+        color: var(--cinza-600);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .status-message {
+        position: relative;
+        z-index: 1;
+        margin: 26px 0 0;
+        color: var(--cinza-600);
+        font-weight: 700;
+      }
+
+      .page-actions {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        margin-top: 30px;
+      }
+
+      .cta {
+        display: inline-flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 22px;
+        border: 2px solid var(--amarelo);
+        border-radius: 6px;
+        background: var(--amarelo);
+        color: var(--verde-950);
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 10px 28px rgba(3, 45, 33, 0.12);
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .cta::before {
+        content: "←";
+        font-size: 1.2rem;
+        transition: transform 180ms ease;
+      }
+
+      .cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 34px rgba(3, 45, 33, 0.18);
+      }
+
+      .cta:hover::before {
+        transform: translateX(-4px);
       }
 
       footer {
@@ -369,18 +380,17 @@
         outline-offset: 4px;
       }
 
-      @media (max-width: 1180px) {
-        .teams-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 860px) {
-        .section-heading {
+      @media (max-width: 980px) {
+        .panel-header {
           grid-template-columns: 1fr;
+          align-items: start;
         }
 
-        .teams-grid {
+        .final-date {
+          justify-self: start;
+        }
+
+        .timer-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
@@ -412,16 +422,16 @@
           height: 220px;
         }
 
-        .teams-section {
+        .countdown-section {
           width: min(88%, 520px);
         }
 
-        .teams-grid {
+        .timer-grid {
           grid-template-columns: 1fr;
         }
 
-        .team-card {
-          min-height: 330px;
+        .time-card {
+          min-height: 150px;
         }
 
         footer {
@@ -455,117 +465,60 @@
 
     <nav aria-label="Navegação principal">
       <a href="/">Home</a>
-      <a href="/selecoes" aria-current="page">Seleções</a>
-      <a href="/countdown">Contagem Regressiva</a>
+      <a href="/selecoes">Seleções</a>
+      <a href="/countdown" aria-current="page">Contagem Regressiva</a>
     </nav>
 
     <main>
       <section class="hero">
         <div class="hero-content">
-          <p class="eyebrow">Painel de seleções</p>
+          <p class="eyebrow">Rumo a 19 de julho</p>
 
-          <h1>Favoritas da <span>Copa 2026</span></h1>
+          <h1>Final da <span>Copa 2026</span></h1>
 
           <p class="hero-description">
-            Compare títulos mundiais, ranking FIFA e principais destaques das
-            seleções que chegam com peso histórico e grandes protagonistas.
+            Uma contagem em tempo real para acompanhar quanto falta para a
+            decisão da Copa do Mundo 2026.
           </p>
         </div>
       </section>
 
-      <section class="teams-section" aria-labelledby="teams-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Dados principais</p>
-            <h2 id="teams-title">Seleções para acompanhar de perto.</h2>
+      <section class="countdown-section" aria-labelledby="countdown-title">
+        <div class="countdown-panel">
+          <div class="panel-header">
+            <h2 id="countdown-title">🏆 Final da Copa do Mundo 2026</h2>
+            <span class="final-date">19/07/2026 às 16:00</span>
           </div>
 
-          <p>
-            Cards organizados para consulta rápida, mantendo o mesmo padrão
-            visual da página inicial do projeto.
+          <div class="timer-grid" aria-live="polite">
+            <div class="time-card">
+              <span class="time-value" id="days" data-testid="countdown-days">0</span>
+              <span class="time-label">Dias</span>
+            </div>
+
+            <div class="time-card">
+              <span class="time-value" id="hours" data-testid="countdown-hours">00</span>
+              <span class="time-label">Horas</span>
+            </div>
+
+            <div class="time-card">
+              <span class="time-value" id="minutes" data-testid="countdown-minutes">00</span>
+              <span class="time-label">Minutos</span>
+            </div>
+
+            <div class="time-card">
+              <span class="time-value" id="seconds" data-testid="countdown-seconds">00</span>
+              <span class="time-label">Segundos</span>
+            </div>
+          </div>
+
+          <p class="status-message" id="countdown-status" data-testid="countdown-status">
+            Contador atualizado automaticamente a cada segundo.
           </p>
-        </div>
 
-        <div class="teams-grid">
-          <article class="team-card">
-            <span class="flag" aria-hidden="true">BR</span>
-            <h3>Brasil</h3>
-            <dl class="team-stats">
-              <div class="stat">
-                <dt>Títulos mundiais</dt>
-                <dd>5 títulos mundiais</dd>
-              </div>
-              <div class="stat">
-                <dt>Ranking FIFA</dt>
-                <dd>5°</dd>
-              </div>
-            </dl>
-            <p class="highlight">Destaque: Vinícius Jr.</p>
-          </article>
-
-          <article class="team-card">
-            <span class="flag" aria-hidden="true">AR</span>
-            <h3>Argentina</h3>
-            <dl class="team-stats">
-              <div class="stat">
-                <dt>Títulos mundiais</dt>
-                <dd>3 títulos mundiais</dd>
-              </div>
-              <div class="stat">
-                <dt>Ranking FIFA</dt>
-                <dd>1°</dd>
-              </div>
-            </dl>
-            <p class="highlight">Destaque: Lionel Messi</p>
-          </article>
-
-          <article class="team-card">
-            <span class="flag" aria-hidden="true">FR</span>
-            <h3>França</h3>
-            <dl class="team-stats">
-              <div class="stat">
-                <dt>Títulos mundiais</dt>
-                <dd>2 títulos mundiais</dd>
-              </div>
-              <div class="stat">
-                <dt>Ranking FIFA</dt>
-                <dd>2°</dd>
-              </div>
-            </dl>
-            <p class="highlight">Destaque: Kylian Mbappé</p>
-          </article>
-
-          <article class="team-card">
-            <span class="flag" aria-hidden="true">DE</span>
-            <h3>Alemanha</h3>
-            <dl class="team-stats">
-              <div class="stat">
-                <dt>Títulos mundiais</dt>
-                <dd>4 títulos mundiais</dd>
-              </div>
-              <div class="stat">
-                <dt>Ranking FIFA</dt>
-                <dd>10°</dd>
-              </div>
-            </dl>
-            <p class="highlight">Destaque: Jamal Musiala</p>
-          </article>
-
-          <article class="team-card">
-            <span class="flag" aria-hidden="true">ES</span>
-            <h3>Espanha</h3>
-            <dl class="team-stats">
-              <div class="stat">
-                <dt>Títulos mundiais</dt>
-                <dd>1 título mundial</dd>
-              </div>
-              <div class="stat">
-                <dt>Ranking FIFA</dt>
-                <dd>8°</dd>
-              </div>
-            </dl>
-            <p class="highlight">Destaque: Lamine Yamal</p>
-          </article>
+          <div class="page-actions">
+            <a class="cta" href="/">Voltar para Home</a>
+          </div>
         </div>
       </section>
     </main>
@@ -574,5 +527,52 @@
       <strong>Copa 2026 Explorer</strong>
       <span>Projeto acadêmico de DevOps · 2026</span>
     </footer>
+
+    <script>
+      const finalDate = new Date("2026-07-19T16:00:00-03:00").getTime();
+      const secondInMs = 1000;
+      const minuteInMs = secondInMs * 60;
+      const hourInMs = minuteInMs * 60;
+      const dayInMs = hourInMs * 24;
+
+      const countdownElements = {
+        days: document.getElementById("days"),
+        hours: document.getElementById("hours"),
+        minutes: document.getElementById("minutes"),
+        seconds: document.getElementById("seconds"),
+        status: document.getElementById("countdown-status"),
+      };
+
+      function formatTwoDigits(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function updateCountdown() {
+        const timeRemaining = finalDate - Date.now();
+
+        if (timeRemaining <= 0) {
+          countdownElements.days.textContent = "0";
+          countdownElements.hours.textContent = "00";
+          countdownElements.minutes.textContent = "00";
+          countdownElements.seconds.textContent = "00";
+          countdownElements.status.textContent =
+            "A final da Copa do Mundo 2026 chegou.";
+          return;
+        }
+
+        const days = Math.floor(timeRemaining / dayInMs);
+        const hours = Math.floor((timeRemaining % dayInMs) / hourInMs);
+        const minutes = Math.floor((timeRemaining % hourInMs) / minuteInMs);
+        const seconds = Math.floor((timeRemaining % minuteInMs) / secondInMs);
+
+        countdownElements.days.textContent = String(days);
+        countdownElements.hours.textContent = formatTwoDigits(hours);
+        countdownElements.minutes.textContent = formatTwoDigits(minutes);
+        countdownElements.seconds.textContent = formatTwoDigits(seconds);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, secondInMs);
+    </script>
   </body>
 </html>
