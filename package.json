@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node src/app.js",
     "test": "jest --coverage",
-    "test:selenium": "jest tests/selenium.test.js"
+    "test:selenium": "jest tests/selenium.test.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "chromedriver": "^148.0.4",
     "eslint": "^10.5.0",
     "jest": "^30.4.2",
