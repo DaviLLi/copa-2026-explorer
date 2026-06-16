@@ -8,9 +8,9 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "test": "jest --coverage",
-    "test:selenium": "jest tests/selenium.test.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest tests/copa.test.js --coverage",
+    "test:selenium": "jest tests/selenium.test.js"
   },
   "repository": {
     "type": "git",
