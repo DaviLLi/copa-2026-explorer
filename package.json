@@ -2,12 +2,15 @@
   "name": "copa-2026-explorer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "lint": "eslint .",
+    "test": "jest tests/copa.test.js --coverage",
+    "test:selenium": "jest tests/selenium.test.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +28,8 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "chromedriver": "^149.0.3",
+    "@eslint/js": "^10.0.1",
+    "chromedriver": "^148.0.4",
     "eslint": "^10.5.0",
     "jest": "^30.4.2",
     "selenium-webdriver": "^4.44.0"
