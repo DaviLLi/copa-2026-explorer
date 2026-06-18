@@ -4,6 +4,9 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const viewsPath = path.join(__dirname, "views");
+const stylePath = path.join(__dirname, "style");
+
+app.use("/style", express.static(stylePath));
 
 // Rotas das paginas HTML do projeto Copa 2026 Explorer.
 app.get("/", (req, res) => {
