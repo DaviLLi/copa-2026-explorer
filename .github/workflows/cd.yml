@@ -23,3 +23,13 @@ jobs:
           remote_host: 54.233.35.188
           remote_user: ubuntu
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Reiniciar aplicação
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 54.233.35.188
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /opt/copa-2026-explorer
+            pm2 restart copa-2026-explorer
